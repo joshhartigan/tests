@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Angular Testing</title>
+  <script type="text/javascript"
+          src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <style>
+  body { font-family: Helvetica; background-color: #f5f5f5; }
+  label { font-size: 10pt; }
+  hr { border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+  footer { clear: both; margin: 0; position: fixed; bottom: 0px; }
+  a { color: black; }
+  </style>
+  <script type="text/javascript">
+  // global variable outside angular
+  var foobar = "this is a string stored in a variable.";
+
+  var app = angular.module("testapp", []);
+  app.controller("Main", ["$scope", "$window", function($scope, $window) {
+    $scope.foobar = $window.foobar;
+  }]);
+  </script>
+</head>
+<body ng-app="testapp" ng-controller="Main">
+  <div>
+    <label>Enter your age in years:</label>
+    <input type="text" ng-model="ageYears" placeholder="e.g. 32">
+    <hr align="left" width="500px">
+    <h1>You are {{ageYears || 32}} years old.</h1>
+    <h1>You are {{ageYears * 365 || 32 * 365}} days old...</h1>
+    <h1>...and {{ageYears * 365 / 7 || 32 * 365 / 7}} weeks.</h1>
+    <p style="color: #79AD66">Access a variable: {{foobar}}</p>
+    </p>
+  </div>
+  <footer>This is <b>Angular Testing</b>. Go to <b><a href="jquery_testing.html">jQuery Testing?</a></b>
+  Go <b><a href="http://joshhartigan.github.io">Home?</a></b></footer>
+</body>
+</html>
