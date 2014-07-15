@@ -19,15 +19,27 @@
     color: #f5f5f5;
   }
   #secret { display: none; }
+  #block {
+    position: absolute;
+    float: left;
+    background-color: #00933b;
+    color: #f5f5f5;
+    width: 15px;
+    height: 15px;
+    font-size: 8pt;
+    padding-left: 2px;
+  }
   </style>
 </head>
 <body>
   <div id="fade">hover here.</div>
   <div id="secret">hi there!</div>
+  <div id="block">⬅</div>
   <footer>This is <b>jQuery Testing</b>. Go to <b><a href="angular_testing.html">Angular Testing?</a></b>
   Go <b><a href="http://joshhartigan.github.io">Home?</a></b></footer>
   <script type="text/javascript">
   $(document).ready(function() {
+    // handle #fade showing and hiding
     $("#fade").mouseenter(function() {
       $("#fade").fadeTo("medium", 0.7);
       $("#secret").toggle('slow');
@@ -35,6 +47,13 @@
     $("#fade").mouseleave(function() {
       $("#fade").fadeTo("medium", 1);
       $("#secret").toggle('slow');
+    });
+  });
+  // follow the mouse
+  $(document).bind('mousemove', function(e){
+    $('#block').css({
+      left: e.pageX + 15,
+      top: e.pageY
     });
   });
   </script>
