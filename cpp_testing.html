@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>C++ Tests</title>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.css" type="text/css">
+  <style>
+  body { font-family: Helvetica, sans-serif; background-color: #f5f5f5; }
+  p { font-size: 10pt; }
+  footer { clear: both; margin: 0; position: fixed; bottom: 0px; }
+  a { color: black; }
+  </style>
+</head>
+
+<body>
+  <p>The programs shown below follow Google's C++ Style Guidelines (or at least
+    attempt to), which can be found <a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml">
+    here</a>.</p>
+  <p>Here's a ridiculously simple program. It's the famous 'Hello World' program,
+    but prints a matrix of 6x4 "hello world" phrases.</p>
+  <pre class="prettyprint">
+    // hello.cpp: Josh Hartigan
+    // Description: print the phrase 'hello world' 4 times on 6 lines
+
+    #include <iostream>
+    using namespace std;
+
+    int main() {
+      for (int row = 0; row &lt; 6; row++) {
+        for (int column = 0; column &lt; 4; column++) {
+          cout &lt;&lt; "hello world ";
+        }
+        cout &lt;&lt; endl;
+      }
+      return 0;
+    }
+  </pre>
+  <p>This first program is from the Google Education C++ Course. It's designed to
+    give an introduction to IO in C++, and begin to form good practices and code
+    style.</p>
+  <pre class="prettyprint">
+    // get_input.cpp: Josh Hartigan
+    // Description: Illustrate usage of cin to get input.
+
+    #include &lt;iostream&gt;
+    using namespace std;
+
+    int main() {
+      int input_var = 0;
+
+      do {
+        cout &lt;&lt; "enter a number (-1 = quit): ";
+        // cin returns false if an input operation fails,
+        // i.e. the type of input is not what is expected.
+        if (!(cin >> input_var)) {
+          cout &lt;&lt; "*** Input NaN." &lt;&lt; endl;
+          cin.clear();
+          cin.ignore(10000, '\n'); // chars use single quotes
+          // break; // exit do-while loop
+        }
+        // all code after the previous if statement will
+        // now be executed if input_var is an integer.
+        else if (input_var != -1) {
+          cout &lt;&lt; "your number was " &lt;&lt; input_var &lt;&lt; endl;
+        }
+      } while (input_var != -1);
+
+      cout &lt;&lt; "goodbye." &lt;&lt; endl;
+      return 0;
+    }
+  </pre>
+
+  <footer>This is <b>C++ Testing</b>. Go to <b><a href="jquery_testing.html">jQuery Testing?</a></b>
+  Got to <b><a href="angular_testing.html">Angular Testing?</a></b>
+  Go <b><a href="http://joshhartigan.github.io">Home?</a></b></footer>
+</body>
+</html>
