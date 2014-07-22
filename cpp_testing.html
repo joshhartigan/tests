@@ -70,7 +70,34 @@
       return 0;
     }
   </pre>
+  <p>A useless program I wrote to practice the usage of reference compound types:</p>
+  <pre class="prettyprint">
+    #include <iostream>
+    using namespace std;
 
+    int main() {
+      cout << endl;
+
+      int myNumber = 22;
+      int &ref = myNumber; // ref 'references' myNumber
+
+      myNumber++;
+
+      cout << "myNumber: " << myNumber; // ==> 23
+      cout << "\nref: " << ref;         // ==> Also 23, because it's
+                                        //     not a seperate variable.
+      ref++; // increment to 24 - not
+             // incrementing 'ref's value,
+             // but the value of whatever
+             // it references (myNumber)
+
+      cout << "\nmyNumber: " << myNumber; // ==> 24 - not 23.
+
+      cout << endl;
+      return 0;
+    }
+
+  </pre>
   <footer>This is <b>C++ Testing</b>. Go to <b><a href="jquery_testing.html">jQuery Testing?</a></b>
   Got to <b><a href="angular_testing.html">Angular Testing?</a></b>
   Go <b><a href="http://joshhartigan.github.io">Home?</a></b></footer>
